@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Seminar</title>
+    <style>
+      body, html {
+        margin: 0;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://localhost');
+        socket.on('connect', function (data) {
+          socket.emit('confirm', { my: 'connectionmade'});
+        });
+        </script> 
+  </body>
+</html>
