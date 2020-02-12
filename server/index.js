@@ -1,8 +1,9 @@
-'use strict'
-const http = require('http')
-const app = require('./config')
-const Server = http.Server(app)
-const PORT = process.env.PORT || 8000
-const io = require('socket.io')(Server)
-
-Server.listen(PORT, () => console.log('Server running on:', PORT))
+var http = require('http');
+var fs = require('fs');
+http.createServer(function (req, res) {
+  fs.readFile('index2.js', function(err, data) {
+    res.writeHead(200, {'Content-Type': 'text/javascript'});
+    res.write(data);
+    res.end();
+  });
+}).listen(8080)
