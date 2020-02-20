@@ -1,9 +1,22 @@
+import { Socket } from "dgram";
+
 const SERVER_IP = window.location.host
 let socket = null
 
-socket = io(SERVER_IP)
-this.emitTest()
-document.write(Surmerner)
+socket = io.connect(SERVER_IP)
+this.emitTest();
+document.open();
+document.write("<h1>SERMINER</h1>");
+document.close();
+console.log('client js ran');
+
+socket.on("connection", () =>{
+    socket.emit('test', {
+        socket = this.socket
+        
+    })
+})
+
 /*
 
 Need to be available at any time and must contain a way to pass the 
